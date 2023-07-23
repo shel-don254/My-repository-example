@@ -97,6 +97,13 @@
       "category": "Food",
       "amount": "3000",
       "id": 14
+    },
+    {
+      "date": "2018-12-5",
+      "description": "sheldon",
+      "category": "name",
+      "amount": 2000,
+      "id": 15
     }
   ]
 }

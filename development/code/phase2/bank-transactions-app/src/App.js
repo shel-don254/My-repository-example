@@ -9,15 +9,18 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:8001/transactions").then((response) => {
+    axios.get("http://localhost:4000/transactions").then((response) => {
       setTransactions(response.data);
     });
   }, []);
 
   const addTransaction = (newTransaction) => {
-    setTransactions([...transactions, newTransaction]);
+    axios
+      .post("http://localhost:4000/transactions", newTransaction)
+      .then((res) => {
+        setTransactions((prev) => [...prev, res.data]);
+      });
   };
-
   const filteredTransactions = transactions.filter((transaction) =>
     transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
